@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's SHG Connect Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Language Selection Page -->
+    <div id="language-selection" class="language-page">
+        <div class="container">
+            <div class="language-content">
+                <div class="welcome-banner">
+                    <h1>Welcome to Women's SHG Connect Portal</h1>
+                    <p>Empowering women through Self-Help Groups - Access benefits, connect with groups, and get guidance for your empowerment journey</p>
+                </div>
+                <div class="language-options">
+                    <h2>Choose Your Preferred Language</h2>
+                    <div class="language-buttons">
+                        <button class="language-btn" data-lang="en">
+                            <i class="fas fa-globe"></i>
+                            <span class="lang-primary">English</span>
+                            <span class="lang-native">English</span>
+                        </button>
+                        <button class="language-btn" data-lang="hi">
+                            <i class="fas fa-globe"></i>
+                            <span class="lang-primary">Hindi</span>
+                            <span class="lang-native">हिन्दी</span>
+                        </button>
+                        <button class="language-btn" data-lang="mr">
+                            <i class="fas fa-globe"></i>
+                            <span class="lang-primary">Marathi</span>
+                            <span class="lang-native">मराठी</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website -->
+    <div id="main-website" class="hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-users"></i>
+                        <span data-translate="portal_title">Women's SHG Connect</span>
+                    </div>
+                    <nav class="nav">
+                        <ul class="nav-menu">
+                            <li><a href="#home" data-translate="nav_home">Home</a></li>
+                            <li><a href="#about" data-translate="nav_about">About SHGs</a></li>
+                            <li><a href="#find-groups" data-translate="nav_find">Find Groups</a></li>
+                            <li><a href="#schemes" data-translate="nav_schemes">Government Schemes</a></li>
+                            <li><a href="#guidance" data-translate="nav_guidance">Guidance & Training</a></li>
+                            <li><a href="#success" data-translate="nav_success">Success Stories</a></li>
+                            <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                        </ul>
+                        <div class="language-toggle">
+                            <select id="language-selector" class="form-control">
+                                <option value="en">English</option>
+                                <option value="hi">हिन्दी</option>
+                                <option value="mr">मराठी</option>
+                            </select>
+                        </div>
+                        <div class="mobile-menu-toggle">
+                            <i class="fas fa-bars"></i>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Homepage -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 data-translate="hero_title">Empowering Women Through Self-Help Groups</h1>
+                        <p data-translate="hero_description">Connect with Self-Help Groups, access government benefits, receive guidance, and embark on your journey towards financial independence and empowerment.</p>
+                        <div class="hero-buttons">
+                            <a href="#find-groups" class="btn btn--primary btn--lg" data-translate="find_shg_btn">Find SHG Near Me</a>
+                            <a href="#schemes" class="btn btn--outline btn--lg" data-translate="learn_benefits_btn">Learn About Benefits</a>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">7.69M</div>
+                            <div class="stat-label" data-translate="stat_shgs">Total SHGs</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8.39Cr</div>
+                            <div class="stat-label" data-translate="stat_women">Women Members</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹5.20L Cr</div>
+                            <div class="stat-label" data-translate="stat_credit">Bank Credit</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">36</div>
+                            <div class="stat-label" data-translate="stat_coverage">States & UTs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About SHGs -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="about_title">What are Self-Help Groups?</h2>
+                    <p data-translate="about_subtitle">Understanding the power of collective empowerment</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 data-translate="shg_definition_title">Definition & Purpose</h3>
+                        <p data-translate="shg_definition">Self-Help Groups (SHGs) are informal associations of 10-15 women from similar economic backgrounds who come together to solve their common problems through self-help and mutual aid.</p>
+                        
+                        <h3 data-translate="how_shgs_work_title">How SHGs Work</h3>
+                        <ul class="feature-list">
+                            <li data-translate="shg_work_1">Regular savings by all members</li>
+                            <li data-translate="shg_work_2">Internal lending from pooled savings</li>
+                            <li data-translate="shg_work_3">Mutual support and guidance</li>
+                            <li data-translate="shg_work_4">Linkage with banks for credit</li>
+                        </ul>
+                    </div>
+                    <div class="benefits-grid" id="benefits-grid">
+                        <!-- Benefits will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find SHG Groups -->
+        <section id="find-groups" class="find-groups">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="find_groups_title">Find SHG Groups Near You</h2>
+                    <p data-translate="find_groups_subtitle">Connect with local Self-Help Groups in your area</p>
+                </div>
+                <div class="search-form">
+                    <div class="search-filters">
+                        <select class="form-control" id="state-filter">
+                            <option value="" data-translate="select_state">Select State</option>
+                            <option value="bihar">Bihar</option>
+                            <option value="rajasthan">Rajasthan</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="uttar-pradesh">Uttar Pradesh</option>
+                            <option value="west-bengal">West Bengal</option>
+                        </select>
+                        <select class="form-control" id="district-filter">
+                            <option value="" data-translate="select_district">Select District</option>
+                        </select>
+                        <button class="btn btn--primary" id="search-btn" data-translate="search_btn">Search</button>
+                    </div>
+                </div>
+                <div class="groups-results" id="groups-results">
+                    <div class="group-card">
+                        <h4>Shakti Women's Group</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Patna, Bihar</p>
+                        <p><i class="fas fa-users"></i> 12 Active Members</p>
+                        <p><i class="fas fa-clock"></i> Meets: Every Tuesday, 10 AM</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                            <button class="btn btn--outline btn--sm" data-translate="join_group_btn">Join Group</button>
+                        </div>
+                    </div>
+                    <div class="group-card">
+                        <h4>Mahila Mandal SHG</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</p>
+                        <p><i class="fas fa-users"></i> 15 Active Members</p>
+                        <p><i class="fas fa-clock"></i> Meets: Every Friday, 2 PM</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +91 9876543211</p>
+                            <button class="btn btn--outline btn--sm" data-translate="join_group_btn">Join Group</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Government Schemes -->
+        <section id="schemes" class="schemes">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="schemes_title">Government Schemes & Benefits</h2>
+                    <p data-translate="schemes_subtitle">Access various government programs through SHGs</p>
+                </div>
+                <div class="schemes-grid" id="schemes-grid">
+                    <!-- Schemes will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Guidance & Training -->
+        <section id="guidance" class="guidance">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="guidance_title">Guidance & Training Programs</h2>
+                    <p data-translate="guidance_subtitle">Develop skills and knowledge for empowerment</p>
+                </div>
+                <div class="training-grid" id="training-grid">
+                    <!-- Training modules will be populated by JavaScript -->
+                </div>
+                <div class="orientation-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3 data-translate="orientation_title">Online Orientation Sessions</h3>
+                            <p data-translate="orientation_description">Join our regular online sessions to learn about SHG benefits and processes</p>
+                            <div class="session-schedule">
+                                <div class="session-item">
+                                    <div class="session-date">Sept 10, 2025</div>
+                                    <div class="session-topic" data-translate="session_1">Financial Literacy Basics</div>
+                                    <div class="session-time">10:00 AM - 12:00 PM</div>
+                                </div>
+                                <div class="session-item">
+                                    <div class="session-date">Sept 15, 2025</div>
+                                    <div class="session-topic" data-translate="session_2">Government Schemes Overview</div>
+                                    <div class="session-time">2:00 PM - 4:00 PM</div>
+                                </div>
+                            </div>
+                            <button class="btn btn--primary" data-translate="register_session_btn">Register for Session</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories -->
+        <section id="success" class="success">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="success_title">Success Stories</h2>
+                    <p data-translate="success_subtitle">Real stories of transformation and empowerment</p>
+                </div>
+                <div class="stories-grid" id="stories-grid">
+                    <!-- Success stories will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-translate="contact_title">Get Help & Support</h2>
+                    <p data-translate="contact_subtitle">We're here to guide you on your empowerment journey</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <h4 data-translate="helpline_title">Helpline</h4>
+                            <p>1800-11-6677</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h4 data-translate="email_title">Email Support</h4>
+                            <p>support@shgconnect.gov.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <h4 data-translate="website_title">Official Website</h4>
+                            <p><a href="https://www.aajeevika.gov.in" target="_blank">www.aajeevika.gov.in</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4 data-translate="address_title">Address</h4>
+                            <p>Ministry of Rural Development<br>Krishi Bhawan, New Delhi</p>
+                        </div>
+                    </div>
+                    <div class="query-form">
+                        <h3 data-translate="query_form_title">Submit Your Query</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="name_label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" data-translate="phone_label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" data-translate="location_label">Location</label>
+                                <input type="text" class="form-control" id="location" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" data-translate="query_label">Your Query</label>
+                                <textarea class="form-control" id="query" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full-width" data-translate="submit_query_btn">Submit Query</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Modal -->
+        <div id="registration-modal" class="modal hidden">
+            <div class="modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 data-translate="register_title">Register for SHG Network</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <form id="registration-form" class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label" data-translate="full_name_label">Full Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-translate="age_label">Age</label>
+                            <input type="number" class="form-control" min="18" max="65" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-translate="address_label">Address</label>
+                            <textarea class="form-control" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-translate="occupation_label">Current Occupation</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" data-translate="interest_label">Area of Interest</label>
+                            <select class="form-control" required>
+                                <option value="" data-translate="select_interest">Select Interest</option>
+                                <option value="tailoring" data-translate="interest_tailoring">Tailoring</option>
+                                <option value="handicraft" data-translate="interest_handicraft">Handicraft</option>
+                                <option value="food_processing" data-translate="interest_food">Food Processing</option>
+                                <option value="agriculture" data-translate="interest_agriculture">Agriculture</option>
+                                <option value="dairy" data-translate="interest_dairy">Dairy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width" data-translate="register_btn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4 data-translate="portal_title">Women's SHG Connect</h4>
+                        <p data-translate="footer_description">Empowering women through Self-Help Groups and government support programs.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h5 data-translate="quick_links_title">Quick Links</h5>
+                        <ul>
+                            <li><a href="#about" data-translate="nav_about">About SHGs</a></li>
+                            <li><a href="#find-groups" data-translate="nav_find">Find Groups</a></li>
+                            <li><a href="#schemes" data-translate="nav_schemes">Government Schemes</a></li>
+                            <li><a href="#guidance" data-translate="nav_guidance">Guidance & Training</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h5 data-translate="support_title">Support</h5>
+                        <ul>
+                            <li><a href="tel:1800-11-6677">Helpline: 1800-11-6677</a></li>
+                            <li><a href="mailto:support@shgconnect.gov.in">Email Support</a></li>
+                            <li><a href="https://www.aajeevika.gov.in" target="_blank">Official Website</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Ministry of Rural Development, Government of India. <span data-translate="rights_reserved">All rights reserved.</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
