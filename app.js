@@ -239,7 +239,7 @@ const translations = {
         guidance_subtitle: "सक्षमीकरणासाठी कौशल्ये आणि ज्ञान विकसित करा",
         orientation_title: "ऑनलाइन अभिमुखता सत्र",
         orientation_description: "एसएचजी फायदे आणि प्रक्रियांबद्दल जाणून घेण्यासाठी आमच्या नियमित ऑनलाइन सत्रांमध्ये सामील व्हा",
-        session_1: "आर्थिक साक्षरतेची मूलतत्त्वे",
+        session_1: "आर्थिक साक्षरतेची मूलतत्वे",
         session_2: "सरकारी योजनांचे विहंगावलोकन",
         register_session_btn: "सत्रासाठी नोंदणी करा",
         
@@ -283,6 +283,7 @@ const translations = {
         rights_reserved: "सर्व हक्क राखीव."
     }
 };
+
 
 // Application data
 const appData = {
@@ -370,13 +371,16 @@ const appData = {
     ]
 };
 
+
 // Global state
 let currentLanguage = 'en';
+
 
 // Main initialization
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
+
 
 function initializeApp() {
     console.log('Initializing app...');
@@ -393,8 +397,10 @@ function initializeApp() {
         initializeLocationSelectors();
         initializeCTAButtons();
         initializeMobileMenu();
+        attachJoinGroupEventDelegation();
     }, 100);
 }
+
 
 // Language Management
 function initializeLanguageSelection() {
@@ -411,6 +417,7 @@ function initializeLanguageSelection() {
         });
     });
 }
+
 
 function selectLanguage(lang) {
     console.log('Selecting language:', lang);
@@ -433,6 +440,7 @@ function selectLanguage(lang) {
     }
 }
 
+
 function updateLanguage(lang) {
     console.log('Updating language to:', lang);
     const elements = document.querySelectorAll('[data-translate]');
@@ -449,6 +457,7 @@ function updateLanguage(lang) {
     });
 }
 
+
 // Dynamic Content Rendering
 function renderDynamicContent() {
     console.log('Rendering dynamic content');
@@ -457,6 +466,7 @@ function renderDynamicContent() {
     renderTrainingModules();
     renderSuccessStories();
 }
+
 
 function renderBenefits() {
     const benefitsGrid = document.getElementById('benefits-grid');
@@ -475,6 +485,7 @@ function renderBenefits() {
         </div>
     `).join('');
 }
+
 
 function renderSchemes() {
     const schemesGrid = document.getElementById('schemes-grid');
@@ -496,6 +507,7 @@ function renderSchemes() {
     `).join('');
 }
 
+
 function renderTrainingModules() {
     const trainingGrid = document.getElementById('training-grid');
     if (!trainingGrid) return;
@@ -516,6 +528,7 @@ function renderTrainingModules() {
     `).join('');
 }
 
+
 function renderSuccessStories() {
     const storiesGrid = document.getElementById('stories-grid');
     if (!storiesGrid) return;
@@ -533,6 +546,7 @@ function renderSuccessStories() {
         </div>
     `).join('');
 }
+
 
 // Navigation
 function initializeNavigation() {
@@ -554,6 +568,7 @@ function initializeNavigation() {
     });
 }
 
+
 // Language selector in header
 function initializeLanguageSelector() {
     const languageSelector = document.getElementById('language-selector');
@@ -567,6 +582,7 @@ function initializeLanguageSelector() {
         });
     }
 }
+
 
 // Forms
 function initializeForms() {
@@ -616,6 +632,7 @@ function initializeForms() {
     }
 }
 
+
 function handleSearch() {
     const stateFilter = document.getElementById('state-filter');
     const districtFilter = document.getElementById('district-filter');
@@ -646,16 +663,15 @@ function handleSearch() {
             resultsContainer.appendChild(searchMessage);
         }
         
-        // Add join group functionality to existing buttons
-        addJoinGroupListeners();
+        // Join group buttons will be handled by event delegation now
     }
 }
+
 
 // Modal Management
 function initializeModal() {
     console.log('Initializing modal');
     
-    const modal = document.getElementById('registration-modal');
     const modalCloseBtn = document.querySelector('.modal-close');
     const modalOverlay = document.querySelector('.modal-overlay');
     
@@ -664,39 +680,35 @@ function initializeModal() {
     }
     
     if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(e) {
+            // Close modal only if clicking on overlay background, not modal content
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
     }
-    
-    // Add event listeners to existing join group buttons
-    addJoinGroupListeners();
-    
-    // Register session button
-    setTimeout(() => {
-        const registerSessionBtn = document.querySelector('[data-translate="register_session_btn"]');
-        if (registerSessionBtn) {
-            registerSessionBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('Register session button clicked');
-                openModal();
-            });
-        }
-    }, 500);
 }
 
-function addJoinGroupListeners() {
-    const joinGroupBtns = document.querySelectorAll('.btn--sm');
-    joinGroupBtns.forEach(btn => {
-        const text = btn.textContent.toLowerCase();
-        if (text.includes('join') || text.includes('शामिल') || text.includes('सामील')) {
-            btn.removeEventListener('click', openModal); // Remove existing listener
-            btn.addEventListener('click', function(e) {
+
+// Event delegation for Join Group buttons inside groups-results container
+function attachJoinGroupEventDelegation() {
+    const resultsContainer = document.getElementById('groups-results');
+    if (!resultsContainer) return;
+    
+    resultsContainer.addEventListener('click', function(e) {
+        let target = e.target;
+        // Check if clicked element or its parent has class btn--sm (join button)
+        if (target.classList.contains('btn--sm') || (target = target.closest('.btn--sm'))) {
+            const btnText = target.textContent.toLowerCase();
+            if (btnText.includes('join') || btnText.includes('शामिल') || btnText.includes('सामील')) {
                 e.preventDefault();
-                console.log('Join group button clicked');
+                console.log('Join group button clicked via delegation');
                 openModal();
-            });
+            }
         }
     });
 }
+
 
 function openModal() {
     const modal = document.getElementById('registration-modal');
@@ -706,6 +718,7 @@ function openModal() {
     }
 }
 
+
 function closeModal() {
     const modal = document.getElementById('registration-modal');
     if (modal) {
@@ -713,6 +726,7 @@ function closeModal() {
         console.log('Modal closed');
     }
 }
+
 
 // Location selectors
 function initializeLocationSelectors() {
@@ -748,6 +762,7 @@ function initializeLocationSelectors() {
         }
     });
 }
+
 
 // CTA Buttons
 function initializeCTAButtons() {
@@ -787,6 +802,7 @@ function initializeCTAButtons() {
         }
     }, 500);
 }
+
 
 // Mobile menu
 function initializeMobileMenu() {
